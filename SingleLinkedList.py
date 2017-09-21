@@ -10,8 +10,6 @@ class LinkedList:
         self.size = 0
         self.head = None
 
-    def insert(self, x):
-        self.head = LinkedList.Node(x)
 
     def isEmpty(self):
         return self.size == 0
@@ -29,5 +27,7 @@ class LinkedList:
         return answer
 
     def top(self):
+        if self.isEmpty():
+            return 'stack is empty.'
         return self.head.value
 
