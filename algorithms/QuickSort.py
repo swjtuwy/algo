@@ -1,6 +1,6 @@
 def quickSort(A):
 
-    r = len(A)
+    r = len(A) - 1
     p = 0
 
     def _quickSort(A, p, r):
