@@ -49,10 +49,11 @@ class Graph:
 
     def __iter__(self):
         return iter(self.vertList.values())
-"""
+
     def BFS(self, startVertex):
-        WHITE = True
-        GRAY = False
+        WHITE = 0
+        GRAY = 1
+        BLACK = 2
         MAX = 1000000000000000
         for vertex in self.vertexList[startVertex].keys():
             vertex.color = WHITE
@@ -64,5 +65,16 @@ class Graph:
         queue = []
         queue.append(startVertex)
         while queue:
-            pass
-"""
+            u = queue[1]
+            queue.remove(queue[1])
+            union = []
+            for i in u.connectedTo:
+                if i.color == WHITE:
+                    union.append(i)
+            for v in union:
+                if v.color == WHITE:
+                    v.color = GRAY
+                    v.depth = u.depth + 1
+                    v.precursor = u
+                    queue.append(v)
+            u.color = BLACK
