@@ -78,3 +78,33 @@ class Graph:
                     v.precursor = u
                     queue.append(v)
             u.color = BLACK
+
+    def DFS(self):
+
+        global time
+        time = 0
+
+
+        def DFSVISIT(self, vertex):
+            time += 1
+            vertex.d = time
+            vertex.color = GRAY
+            for v in self.vertexList[vertex].keys():
+                if v.color == WHITE:
+                    v.precursor = vertex
+                    DFSVISIT(v)
+            vertex.color = BLACK
+            time += 1
+            vertex.f = time
+
+
+        WHITE = 0
+        GRAY = 1
+        BLACK = 2
+        MAX = 1000000000000000
+        for vertex in self.vertexList:
+            vertex.color = WHITE
+            vertex.precursor = None
+        for vertex in self.vertexList:
+            if vertex.color == WHITE:
+                DFSVISIT(vertex)
