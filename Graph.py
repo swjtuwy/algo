@@ -2,6 +2,9 @@ class Vertex:
 
     def __init__(self, key):
         self.id = key
+        self.color = None
+        self.depth = None
+        self.precursor = None
         self.connectedTo = []
 
     def addNeiborVertex(self, neiborVertex, weight=None):
@@ -46,3 +49,20 @@ class Graph:
 
     def __iter__(self):
         return iter(self.vertList.values())
+"""
+    def BFS(self, startVertex):
+        WHITE = True
+        GRAY = False
+        MAX = 1000000000000000
+        for vertex in self.vertexList[startVertex].keys():
+            vertex.color = WHITE
+            vertex.depth = MAX
+            vertex.precursor = None
+        startVertex.color = GRAY
+        startVertex.depth = 0
+        startVertex.precursor = None
+        queue = []
+        queue.append(startVertex)
+        while queue:
+            pass
+"""
