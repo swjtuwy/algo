@@ -30,3 +30,9 @@
 
 - 红黑树
 
+- Prim算法
+
+- Kruskal算法
+
+- Dijkstra算法
+
